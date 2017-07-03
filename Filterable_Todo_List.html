@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Filterable Todo List</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.css" rel="stylesheet"/>
+</head>
+<body>
+
+	<div class="container">
+		
+
+		<h1 class="center-align">
+			To-Do List
+		</h1>
+		<input type="text" id="searchInput" placeholder="Search To-Do..."/>
+	<ol class="collection with-header" id="todoList">
+		<div class="collection-header">
+			<h4>July 3, 2017</h4>
+		</div>
+		<li class="collection-item">
+			Wake-up early.
+		</li>
+		<li class="collection-item">
+			Learn concepts on CodeMonk.	
+		</li>
+		<li class="collection-item">
+			Do questions on CodeMonk.
+		</li>
+		<li class="collection-item">
+			Go out.
+		</li>
+		<li class="collection-item">
+			Go play.
+		</li>
+		<li class="collection-item">
+			Eat well.
+		</li>
+		<li class="collection-item">
+			Do meditation.
+		</li>
+		<li class="collection-item">
+			Work for atleast 12 hrs a day.
+		</li>
+
+
+	</ol>	
+	</div>
+
+	<script>
+		var inputSearch = document.getElementById('searchInput');
+		var todoList = document.getElementById('todoList');
+		inputSearch.addEventListener("keyup", function(){
+			var inputVal = inputSearch.value.toUpperCase();
+
+			var todos = todoList.querySelectorAll('li');
+			
+			for(var i=0; i<todos.length; i++){
+				
+				if(todos[i].innerText.toUpperCase().indexOf(inputVal) > -1){
+					todos[i].style.display = '';
+					
+				} else {
+					todos[i].style.display = 'none';
+					
+				}
+			}
+				
+		})
+		
+	</script>
+</body>
+</html>
